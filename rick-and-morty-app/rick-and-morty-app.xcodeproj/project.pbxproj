@@ -16,6 +16,7 @@
 		3ED868ED27AC730E00BB99C9 /* rick_and_morty_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED868EC27AC730E00BB99C9 /* rick_and_morty_appTests.swift */; };
 		3ED868F727AC730E00BB99C9 /* rick_and_morty_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED868F627AC730E00BB99C9 /* rick_and_morty_appUITests.swift */; };
 		3ED868F927AC730E00BB99C9 /* rick_and_morty_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED868F827AC730E00BB99C9 /* rick_and_morty_appUITestsLaunchTests.swift */; };
+		3ED8690627AC7AAB00BB99C9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED8690527AC7AAB00BB99C9 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		3ED868F227AC730E00BB99C9 /* rick-and-morty-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "rick-and-morty-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED868F627AC730E00BB99C9 /* rick_and_morty_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rick_and_morty_appUITests.swift; sourceTree = "<group>"; };
 		3ED868F827AC730E00BB99C9 /* rick_and_morty_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rick_and_morty_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3ED8690527AC7AAB00BB99C9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				3ED868DE27AC730E00BB99C9 /* Assets.xcassets */,
 				3ED868E027AC730E00BB99C9 /* LaunchScreen.storyboard */,
 				3ED868E327AC730E00BB99C9 /* Info.plist */,
+				3ED8690527AC7AAB00BB99C9 /* API.swift */,
 			);
 			path = "rick-and-morty-app";
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			files = (
 				3ED868DA27AC730C00BB99C9 /* ViewController.swift in Sources */,
 				3ED868D627AC730C00BB99C9 /* AppDelegate.swift in Sources */,
+				3ED8690627AC7AAB00BB99C9 /* API.swift in Sources */,
 				3ED868D827AC730C00BB99C9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

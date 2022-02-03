@@ -17,18 +17,31 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     //MARK: - Properties
-    var characters = ["Character 1", "Character 2", "Character 3"]
+    var characters: [Character] = []
 
     //MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setTableView()
+        fetchCharacters()
+
     }
 
     private func setTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+    }
+
+    private func fetchCharacters() {
+        Task {
+            let characters = await fetchCharacter()
+            for character in characters {
+                self.characters.append(character)
+            }
+            tableView.reloadData()
+        }
+
     }
 }
 
@@ -42,7 +55,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "characterCell", for: indexPath) as! CharacterCell
 
         let character = characters[indexPath.row]
-        cell.nameLabel.text = character
+        cell.nameLabel.text = character.name
 
         return cell
     }
