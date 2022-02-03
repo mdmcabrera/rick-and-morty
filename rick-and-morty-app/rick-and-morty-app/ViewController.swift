@@ -12,12 +12,14 @@ class CharacterCell: UITableViewCell {
 
 }
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController {
+    //MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
 
     //MARK: - Properties
     var characters = ["Character 1", "Character 2", "Character 3"]
 
+    //MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,7 +30,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
     }
+}
 
+//MARK: - Table View Delegate
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return characters.count
     }
