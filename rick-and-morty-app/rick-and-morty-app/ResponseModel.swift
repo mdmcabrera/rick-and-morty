@@ -6,7 +6,7 @@
 //
 
 import Foundation
-g
+
 struct ResponseInfo: Codable {
     let info: Info
     let results: [Character]
