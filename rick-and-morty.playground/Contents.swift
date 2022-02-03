@@ -84,7 +84,7 @@ func fetchCharacter(id: Int) async -> Character? {
     Task {
         let characters = await fetchCharacter()
         for character in characters {
-         //   print(character.name)
+            print(character.name)
         }
 
         let character = await fetchCharacter(id: 4)
