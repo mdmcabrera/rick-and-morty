@@ -40,6 +40,9 @@ struct Location: Codable {
 
 let url = URL(string: "https://rickandmortyapi.com/api/character")
 
+/*
+ Fetch 20 first characters
+ */
 func fetchCharacter() async -> [Character] {
     guard let url = url else {
         return []
@@ -56,12 +59,36 @@ func fetchCharacter() async -> [Character] {
         return []
     }
 }
+/*
+ Fetch character by id
+ */
+func fetchCharacter(id: Int) async -> Character? {
+    let url = URL(string: "https://rickandmortyapi.com/api/character/\(id)")
+    guard let url = url else {
+        return nil
+    }
+    
+    do {
+        let (data, _) = try await URLSession.shared.data(from: url)
+        
+        let character = try JSONDecoder().decode(Character.self, from: data)
+        
+        return character
+        
+    } catch {
+        return nil
+    }
+
+}
 
     Task {
         let characters = await fetchCharacter()
         for character in characters {
-            print(character.name)
+         //   print(character.name)
         }
+
+        let character = await fetchCharacter(id: 4)
+        print(character?.name)
     }
 
 
