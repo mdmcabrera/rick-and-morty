@@ -7,12 +7,13 @@
 
 import Foundation
 
-let url = URL(string: "https://rickandmortyapi.com/api/character")
+enum Endpoint: String {
+    case allCharacters = "https://rickandmortyapi.com/api/character"
+}
 
-/*
- Fetch 20 first characters
- */
+
 func fetchCharacter() async -> [Character] {
+    let url = URL(string: Endpoint.allCharacters.rawValue)
     guard let url = url else {
         return []
     }
