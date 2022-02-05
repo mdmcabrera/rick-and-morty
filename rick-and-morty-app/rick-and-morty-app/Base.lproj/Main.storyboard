@@ -41,7 +41,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="nameLabel" destination="8op-MA-u12" id="754-Wh-TwD"/>
+                                            <outlet property="nameLabel" destination="8op-MA-u12" id="RrL-1b-0Hq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

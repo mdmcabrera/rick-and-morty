@@ -7,11 +7,6 @@
 
 import UIKit
 
-class CharacterCell: UITableViewCell {
-    @IBOutlet weak var nameLabel: UILabel!
-
-}
-
 class ViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
