@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func addButtonTapped(_ sender: Any) {
-        let textField = UITextField()
+        var textField = UITextField()
 
         let alert = UIAlertController(title: "Create new character", message: "", preferredStyle: .alert)
         alert.addTextField { alertTextField in
