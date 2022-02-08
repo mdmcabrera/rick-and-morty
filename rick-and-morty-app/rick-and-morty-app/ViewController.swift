@@ -7,11 +7,6 @@
 
 import UIKit
 
-class CharacterCell: UITableViewCell {
-    @IBOutlet weak var nameLabel: UILabel!
-
-}
-
 class ViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
@@ -34,15 +29,37 @@ class ViewController: UIViewController {
     }
 
     private func fetchCharacters() {
+        // Fetches character from API
         Task {
             let characters = await fetchCharacter()
             for character in characters {
                 self.characters.append(character)
             }
+            
             tableView.reloadData()
         }
-
     }
+    
+    
+    @IBAction func addButtonTapped(_ sender: Any) {
+        var textField = UITextField()
+
+        let alert = UIAlertController(title: "Create new character", message: "", preferredStyle: .alert)
+        alert.addTextField { alertTextField in
+            alertTextField.placeholder = "Create new character"
+            
+            textField = alertTextField
+        }
+
+        let action = UIAlertAction(title: "Add", style: .default) { action in
+            // Only add character is !texfield.isEmpty
+
+        }
+
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 //MARK: - Table View Delegate
