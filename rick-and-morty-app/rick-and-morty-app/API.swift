@@ -12,7 +12,6 @@ enum Endpoint: String {
     case allCharacters = "https://rickandmortyapi.com/api/character"
 }
 
-
 func fetchCharacters() async -> List<Character>? {
     let url = URL(string: Endpoint.allCharacters.rawValue)
     guard let url = url else {

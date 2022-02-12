@@ -40,6 +40,10 @@ class ViewController: UIViewController {
             if let characters = characters {
                 for character in characters {
                     self.characters.append(character)
+                    
+                    try! realm.write {
+                        realm.add(character, update: .modified)
+                    }
                 }
             }
             tableView.reloadData()
