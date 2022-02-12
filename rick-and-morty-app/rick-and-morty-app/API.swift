@@ -6,16 +6,17 @@
 //
 
 import Foundation
+import RealmSwift
 
 enum Endpoint: String {
     case allCharacters = "https://rickandmortyapi.com/api/character"
 }
 
 
-func fetchCharacter() async -> [Character] {
+func fetchCharacters() async -> List<Character>? {
     let url = URL(string: Endpoint.allCharacters.rawValue)
     guard let url = url else {
-        return []
+        return nil
     }
 
     do {
@@ -23,10 +24,10 @@ func fetchCharacter() async -> [Character] {
 
         let decodedData = try JSONDecoder().decode(ResponseInfo.self, from: data)
         let characters = decodedData.results
-
-        return characters
+        
+         return characters
     } catch {
-        return []
+        return nil
     }
 }
 /*
