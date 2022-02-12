@@ -35,8 +35,10 @@ class ViewController: UIViewController {
 
     private func fetchAllCharacters() {
         // Fetches character from API
+        self.startActivityIndicator()
         Task {
             let characters = await fetchCharacters()
+            self.stopActivityIndicator()
             if let characters = characters {
                 for character in characters {
                     self.characters.append(character)
@@ -63,7 +65,7 @@ class ViewController: UIViewController {
 
         let action = UIAlertAction(title: "Add", style: .default) { action in
             // Only add character is !texfield.isEmpty
-
+            print(textField.text)
         }
 
         alert.addAction(action)
