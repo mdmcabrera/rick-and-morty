@@ -28,7 +28,6 @@ import RealmSwift
     dynamic var gender: String = ""
     dynamic var origin: Origin? = nil
     dynamic var location: Location? = nil
-    
     dynamic var image: String = ""
     var episode = List<String>()
     dynamic var url: String = ""
@@ -37,6 +36,20 @@ import RealmSwift
     override static func primaryKey() -> String? {
         return "id"
     }
+    
+    convenience init(id: Int, name: String, status: String, gender: String, origin: Origin?, location: Location?, image: String, episode: List<String>?, url: String?, created: String?) {
+        self.init()
+        self.id = id
+        self.name = name
+        self.status = status
+        self.gender = gender
+        self.origin = origin
+        self.location = location
+        self.image = image
+        self.episode = episode ?? List<String>()
+        self.url = url ?? ""
+        self.created = created ?? ""
+     }
 }
 
 @objcMembers class Origin: Object, Codable {

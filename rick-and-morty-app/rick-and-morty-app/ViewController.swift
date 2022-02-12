@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     // MARK: - Properties
-    var characters: [Character] = []
+    var characters: [Character] = [] // Replace with array coming from DB
     let realm = try! Realm()
     
     
@@ -63,9 +63,28 @@ class ViewController: UIViewController {
             textField = alertTextField
         }
 
-        let action = UIAlertAction(title: "Add", style: .default) { action in
+        let action = UIAlertAction(title: "Add", style: .default) { [self] action in
             // Only add character is !texfield.isEmpty
-            print(textField.text)
+            if let characterName = textField.text {
+                // We use hashValue because UUID().uuidString will return a string and currently due to schema from API, id is Int. Getting hash value of UUID could end up with two characters having the same ID but this can be improved
+                let character = Character(id: UUID().hashValue,
+                                          name: characterName,
+                                          status: "unknown",
+                                          gender: "undetermined",
+                                          origin: nil,
+                                          location: nil,
+                                          image: "",
+                                          episode: nil,
+                                          url: nil,
+                                          created: nil)
+                try! self.realm.write {
+                    realm.add(character)
+                }
+                characters.append(character)
+                
+                tableView.reloadData()
+            }
+
         }
 
         alert.addAction(action)
