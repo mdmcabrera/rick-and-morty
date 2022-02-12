@@ -6,26 +6,26 @@
 //
 
 import UIKit
+import RealmSwift
 
-class CharacterCell: UITableViewCell {
-    @IBOutlet weak var nameLabel: UILabel!
-
-}
+// This is a temporary class in order to test basic CRUD functionality
+// Future development: Map response from API in order to store all the data
 
 class ViewController: UIViewController {
-    //MARK: - IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
 
-    //MARK: - Properties
+    // MARK: - Properties
     var characters: [Character] = []
-
-    //MARK: - View life cycle
+    let realm = try! Realm()
+    
+    
+    // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setTableView()
-        fetchCharacters()
-
+        fetchAllCharacters()
     }
 
     private func setTableView() {
@@ -33,19 +33,47 @@ class ViewController: UIViewController {
         tableView.dataSource = self
     }
 
-    private func fetchCharacters() {
+    private func fetchAllCharacters() {
+        // Fetches character from API
+        self.startActivityIndicator()
         Task {
-            let characters = await fetchCharacter()
-            for character in characters {
-                self.characters.append(character)
+            let characters = await fetchCharacters()
+            self.stopActivityIndicator()
+            if let characters = characters {
+                for character in characters {
+                    self.characters.append(character)
+                    
+                    try! realm.write {
+                        realm.add(character, update: .modified)
+                    }
+                }
             }
             tableView.reloadData()
         }
+    }
+    
+    
+    @IBAction func addButtonTapped(_ sender: Any) {
+        var textField = UITextField()
 
+        let alert = UIAlertController(title: "Create new character", message: "", preferredStyle: .alert)
+        alert.addTextField { alertTextField in
+            alertTextField.placeholder = "Create new character"
+            
+            textField = alertTextField
+        }
+
+        let action = UIAlertAction(title: "Add", style: .default) { action in
+            // Only add character is !texfield.isEmpty
+            print(textField.text)
+        }
+
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 }
 
-//MARK: - Table View Delegate
+// MARK: - Table View Delegate
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return characters.count
