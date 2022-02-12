@@ -87,5 +87,28 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            characters.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            // Remove object from database
+            
+            let characters = [Character]() // fill in your items values
+            // then just grab the ids of the items with
+            let ids = characters.map { $0.id }
+
+            // query all objects where the id in not included - Replace with Swift Realm Query API
+            let objectsToDelete = realm.objects(Character.self).filter("NOT id IN %@", ids)
+
+            realm.delete(objectsToDelete)
+            
+        }
+    }
 }
 
