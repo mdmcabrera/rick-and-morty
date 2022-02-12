@@ -10,6 +10,7 @@
 		3E05042727AEF77000EA15D3 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 3E05042627AEF77000EA15D3 /* Realm */; };
 		3E05042927AEF77000EA15D3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3E05042827AEF77000EA15D3 /* RealmSwift */; };
 		3E05042B27AEF86900EA15D3 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E05042A27AEF86900EA15D3 /* CharacterCell.swift */; };
+		3E82265E27B8534300AB9745 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82265D27B8534300AB9745 /* UIViewController+Extension.swift */; };
 		3ED868D627AC730C00BB99C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED868D527AC730C00BB99C9 /* AppDelegate.swift */; };
 		3ED868D827AC730C00BB99C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED868D727AC730C00BB99C9 /* SceneDelegate.swift */; };
 		3ED868DA27AC730C00BB99C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED868D927AC730C00BB99C9 /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		3E05042A27AEF86900EA15D3 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
+		3E82265D27B8534300AB9745 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		3ED868D227AC730C00BB99C9 /* rick-and-morty-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rick-and-morty-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED868D527AC730C00BB99C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ED868D727AC730C00BB99C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				3ED8690527AC7AAB00BB99C9 /* API.swift */,
 				3ED8690727AC81C300BB99C9 /* ResponseModel.swift */,
 				3E05042A27AEF86900EA15D3 /* CharacterCell.swift */,
+				3E82265D27B8534300AB9745 /* UIViewController+Extension.swift */,
 			);
 			path = "rick-and-morty-app";
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				3ED868D627AC730C00BB99C9 /* AppDelegate.swift in Sources */,
 				3ED8690627AC7AAB00BB99C9 /* API.swift in Sources */,
 				3E05042B27AEF86900EA15D3 /* CharacterCell.swift in Sources */,
+				3E82265E27B8534300AB9745 /* UIViewController+Extension.swift in Sources */,
 				3ED8690827AC81C300BB99C9 /* ResponseModel.swift in Sources */,
 				3ED868D827AC730C00BB99C9 /* SceneDelegate.swift in Sources */,
 			);

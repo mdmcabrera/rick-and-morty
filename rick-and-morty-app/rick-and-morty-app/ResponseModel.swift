@@ -6,40 +6,45 @@
 //
 
 import Foundation
+import Realm
+import RealmSwift
 
-struct ResponseInfo: Codable {
-    let info: Info
-    let results: [Character]
+@objcMembers class ResponseInfo: Object, Codable {
+    dynamic var info: Info? = nil
+    var results = List<Character>()
 }
 
-struct Info: Codable {
-    let count: Int
-    let pages: Int
-    let next: String?
-    let prev: String?
+@objcMembers class Info: Object, Codable {
+    dynamic var count: Int = 0
+    dynamic var pages: Int = 0
+    dynamic var next: String? = nil
+    dynamic var prev: String? = nil
 }
 
-struct Character: Codable {
-    let id: Int
-    let name: String
-    let status: String
-    let species: String
-    let type: String
-    let gender: String
-    let origin: Origin
-    let location: Location
-    let image: String
-    let episode: [String]
-    let url: String
-    let created: String
+@objcMembers class Character: Object, Codable {
+    dynamic var id: Int = 0
+    dynamic var name: String = ""
+    dynamic var status: String = ""
+    dynamic var gender: String = ""
+    dynamic var origin: Origin? = nil
+    dynamic var location: Location? = nil
+    
+    dynamic var image: String = ""
+    var episode = List<String>()
+    dynamic var url: String = ""
+    dynamic var created: String = ""
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
-struct Origin: Codable {
-    let name: String
-    let url: String
+@objcMembers class Origin: Object, Codable {
+    dynamic var name: String = ""
+    dynamic var url: String = ""
 }
 
-struct Location: Codable {
-    let name: String
-    let url: String
+@objcMembers class Location: Object, Codable {
+    dynamic var name: String = ""
+    dynamic var url: String = ""
 }
